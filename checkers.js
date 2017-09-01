@@ -272,7 +272,17 @@ function main() {
           } else {
             console.log(index + ". You can " + getJumpString(move));
           }
-        })
+        });
+		// Prompt the user to pickl a move
+		rl.question("Pick your move from the list:" , function(answer){
+			var command = answer.substring(0,1);
+			if(command === 'c') return;
+			command = parseInt(command);
+			if(command === NaN || command >= moves.length) return;
+			applyMove(x, y, moves[command]);
+			checkForVictory();
+			nextTurn();
+		});
       }
     }
   });
