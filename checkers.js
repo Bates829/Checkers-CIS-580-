@@ -197,3 +197,42 @@ function nextTurn() {
   if(state.turn === 'b') state.turn = 'w';
   else state.turn = 'b';
 }
+
+/** @function handleCheckerClick
+* Click handler for checker
+*/
+function handleCheckerClick(event){
+	event.preventDefault();
+	var parentId = event.target.parentElement.id;
+	var x = parseInt(parentId.charAt(7));
+	var y = parseInt(parentId.charAt(9));
+	console.log(x, y);
+}
+
+/**
+*/
+function setup(){
+	var board = document.createElement('section');
+	board.id = 'game-board';
+	document.body.appendChild(board);
+	for(var y =0; y < this.state.board.length;  y++){
+		for(var x = 0; x < this.state.board[y].length; x++){
+			var square = document.createElement('div');
+			square.id = 'square-' + x + '-' + y;
+			square.classList.add('square');
+			if((y + x) % 2 === 1){
+				square.classList.add('black');
+			}
+			board.appendChild(square);
+			if(state.board[y][x]){
+				var checker = document.createElement('div');
+				checker.classList.add('checker');
+				checker.classList.add('checker-' + state.board[y][x]);
+				square.appendChild(checker);
+			}
+			
+		}
+	}
+}
+
+setup();
