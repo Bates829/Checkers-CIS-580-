@@ -35,11 +35,15 @@
 }
 
 .square.highlight {
-  background-color: yellow;
+  background-color: yellow !important;
 }
 
 .checker.highlight {
   border: 3px solid yellow;
   width: 80px;
   height: 80px;
+}
+
+.square.droptarget{
+	background-color: orange;
 }
