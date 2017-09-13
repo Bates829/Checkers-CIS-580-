@@ -230,6 +230,9 @@ function handleDragLeaveSquare(event){
 	event.target.classList.remove('droptarget');
 }
 
+/** @function handleDropSquare
+* Event handler for dropping checker
+*/
 function handleDropSquare(event){
 	event.preventDefault();
 	var parentId = event.target.parent.id;
